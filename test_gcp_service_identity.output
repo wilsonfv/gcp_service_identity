@@ -1,0 +1,84 @@
+$./test_gcp_service_identity.sh
+========== Display gcloud version ==========
+Google Cloud SDK 305.0.0
+alpha 2020.08.07
+beta 2020.08.07
+bq 2.0.58
+core 2020.08.07
+gsutil 4.52
+========== Display gcloud config ==========
+[core]
+account = wilsonfv78@gmail.com
+disable_usage_reporting = True
+project = gke-eu-1
+
+Your active configuration is: [default]
+========== Display IAM roles assigned to gcp user account ==========
+roles/editor                                                     user:wilsonfv78@gmail.com
+roles/iam.securityAdmin                                          user:wilsonfv78@gmail.com
+========== Display enabled APIs ==========
+NAME                              TITLE
+bigquery.googleapis.com           BigQuery API
+bigquerystorage.googleapis.com    BigQuery Storage API
+cloudbilling.googleapis.com       Cloud Billing API
+cloudkms.googleapis.com           Cloud Key Management Service (KMS) API
+compute.googleapis.com            Compute Engine API
+container.googleapis.com          Kubernetes Engine API
+containerregistry.googleapis.com  Container Registry API
+dns.googleapis.com                Cloud DNS API
+iam.googleapis.com                Identity and Access Management (IAM) API
+iamcredentials.googleapis.com     IAM Service Account Credentials API
+iap.googleapis.com                Cloud Identity-Aware Proxy API
+monitoring.googleapis.com         Cloud Monitoring API
+oslogin.googleapis.com            Cloud OS Login API
+pubsub.googleapis.com             Cloud Pub/Sub API
+serviceusage.googleapis.com       Service Usage API
+storage-api.googleapis.com        Google Cloud Storage JSON API
+vision.googleapis.com             Cloud Vision API
+========== Create a gcp service account ==========
+Created service account [sa-test-5711].
+========== gcp service account: sa-test-5711@gke-eu-1.iam.gserviceaccount.com ==========
+========== Display IAM roles assigned to gcp service account ==========
+========== Generate key for gcp service account ==========
+created key [6a770fbc1e251fadd032103dfa5ecac894faf28f] of type [json] as [sa-test-5711.json] for [sa-test-5711@gke-eu-1.iam.gserviceaccount.com]
+========== Authenticate gcp service account ==========
+Activated service account credentials for: [sa-test-5711@gke-eu-1.iam.gserviceaccount.com]
+[core]
+account = sa-test-5711@gke-eu-1.iam.gserviceaccount.com
+disable_usage_reporting = True
+project = gke-eu-1
+
+Your active configuration is: [default]
+========== Use gcp service account to create service identity service account in which previously is not possible ==========
+Service identity created: service-119099403502@gcp-sa-cloud-sql.iam.gserviceaccount.com
+Service identity created: service-119099403502@service-networking.iam.gserviceaccount.com
+========== Switch back to gcp user account ==========
+Updated property [core/account].
+[core]
+account = wilsonfv78@gmail.com
+disable_usage_reporting = True
+project = gke-eu-1
+
+Your active configuration is: [default]
+========== Grant role to gcp service account ==========
+Updated IAM policy for project [gke-eu-1].
+Updated IAM policy for project [gke-eu-1].
+========== Display IAM roles assigned to gcp service account ==========
+roles/cloudsql.admin                                             serviceAccount:sa-test-5711@gke-eu-1.iam.gserviceaccount.com
+roles/iam.securityAdmin                                          serviceAccount:sa-test-5711@gke-eu-1.iam.gserviceaccount.com
+========== Generate key for gcp service account ==========
+created key [2f9aa05c01425096046e6ad9553769af0288dfc3] of type [json] as [sa-test-5711.json] for [sa-test-5711@gke-eu-1.iam.gserviceaccount.com]
+========== Authenticate gcp service account ==========
+Activated service account credentials for: [sa-test-5711@gke-eu-1.iam.gserviceaccount.com]
+[core]
+account = sa-test-5711@gke-eu-1.iam.gserviceaccount.com
+disable_usage_reporting = True
+project = gke-eu-1
+
+Your active configuration is: [default]
+========== Use gcp service account to create service identity service account in which previously is not possible ==========
+Service identity created: service-119099403502@gcp-sa-cloud-sql.iam.gserviceaccount.com
+Service identity created: service-119099403502@service-networking.iam.gserviceaccount.com
+========== Clean up ==========
+Updated property [core/account].
+deleted service account [sa-test-5711@gke-eu-1.iam.gserviceaccount.com]
